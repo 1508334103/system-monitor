@@ -1,9 +1,10 @@
 import axios from 'axios'
 import type { CpuInfo, MemoryInfo, DiskInfo, NetworkInfo, SystemInfo } from '../stores/schema'
+import { apiBaseUrl } from '../config.ts'
 
 // 创建 axios 实例
 const api = axios.create({
-    baseURL: 'http://localhost:8000/api',
+    baseURL: apiBaseUrl,
     timeout: 5000
 })
 

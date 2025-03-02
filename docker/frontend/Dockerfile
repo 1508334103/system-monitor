@@ -9,6 +9,8 @@ COPY frontend/package*.json ./
 
 # 安装依赖
 RUN npm install
+# 安装 Node.js 类型声明（解决build时的TS错误）
+RUN npm install --save-dev @types/node
 
 # 复制前端代码
 COPY frontend/ .
