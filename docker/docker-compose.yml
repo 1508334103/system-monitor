@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  # 后端服务
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/backend/Dockerfile
+    container_name: system-monitor-backend
+    restart: always
+    networks:
+      - app-network
+
+  # 前端服务
+  frontend:
+    build:
+      context: ..
+      dockerfile: docker/frontend/Dockerfile
+    container_name: system-monitor-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge 
