@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { Quasar, Loading, Notify } from 'quasar'
+import router from './router'
 
 // 导入 Quasar 的 CSS
 import '@quasar/extras/material-icons/material-icons.css'
@@ -22,8 +23,12 @@ app.use(Quasar, {
     config: {
         // 可以在这里配置 Quasar 的默认值
         loading: {},
-        notify: {}
+        notify: {},
+        brand: {
+            // ... 你的品牌颜色配置
+        }
     }
 })
 
+app.use(router)
 app.mount('#app')
